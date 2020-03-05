@@ -1,22 +1,11 @@
 <nz-layout>
-  <nz-header>
-    <div class="logo"></div>
-    <ul nz-menu nzTheme="dark" nzMode="horizontal">
-      <li nz-menu-item>nav 1</li>
-      <li nz-menu-item>nav 2</li>
-      <li nz-menu-item>nav 3</li>
-    </ul>
-  </nz-header>
+
   <nz-content>
-    <nz-breadcrumb>
-      <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-      <nz-breadcrumb-item>List</nz-breadcrumb-item>
-      <nz-breadcrumb-item>App</nz-breadcrumb-item>
-    </nz-breadcrumb>
+
     <div class="inner-content">
 
 
-      <nz-upload nzType="drag" [nzMultiple]="false" (nzChange)="handleChange($event)">
+      <nz-upload *ngIf="!data" nzType="drag" [nzMultiple]="false" (nzChange)="handleChange($event)">
         <p class="ant-upload-drag-icon">
           <i nz-icon nzType="inbox"></i>
         </p>
@@ -25,12 +14,12 @@
           Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
         </p>
       </nz-upload>
+      <app-print [data]="data" *ngIf="data"></app-print>
 
     </div>
 
 
-    <app-print [data]="data" *ngIf="data"></app-print>
 
   </nz-content>
-  <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
+  <nz-footer>Zoho print by Lightning</nz-footer>
 </nz-layout>

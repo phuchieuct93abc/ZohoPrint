@@ -1,0 +1,45 @@
+:host {
+  border: 1px solid black;
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  padding: 1em;
+  font-size: 1.2rem;
+
+  .story {
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-gap: 1em;
+    grid-template: auto auto auto / auto 1fr auto;
+    grid-template-areas: "index id epic"
+      "name name name"
+      "priority empty point";
+
+    .index {
+      grid-area: index;
+    }
+
+    .id {
+      grid-area: id;
+    }
+
+    .name {
+      grid-area: name;
+    }
+
+    .point {
+      grid-area: point;
+    }
+
+    .priority {
+      grid-area: priority;
+    }
+
+    .epic {
+      grid-area: epic;
+
+    }
+
+  }
+}

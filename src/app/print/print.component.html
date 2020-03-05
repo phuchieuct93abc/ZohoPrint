@@ -1,4 +1,17 @@
-<div *ngFor="let story of data.stories">
-  <app-user-story [story]="story"></app-user-story>
+<h3>Stories</h3>
+
+
+<div class="print">
+  <app-user-story *ngFor="let story of data.stories" [story]="story"></app-user-story>
+
+
+
+</div>
+
+<h3>Task</h3>
+<div class="print">
+  <app-user-story *ngFor="let story of data.tasks" [story]="story"></app-user-story>
+
+
 
 </div>

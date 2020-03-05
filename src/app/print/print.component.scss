@@ -1,0 +1,4 @@
+.print {
+  display: grid;
+  grid-template: repeat(auto-fill, minmax(100px, 1fr)) / repeat(auto-fill, 500px);
+}
