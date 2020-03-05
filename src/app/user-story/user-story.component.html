@@ -1,25 +1,13 @@
-<div>
+<div class="story">
+  <div class="index">
+    <b>Index: </b>
+    <span *ngIf="story.index">{{story.index}}</span>
+    <span *ngIf="story.relatedToIndex">{{story.relatedToIndex}}</span>
 
-  <table>
-    <td>
-      <tr>
-        <div class="story">
-          <div class="index">
-            <b>Index: </b>
-            <span *ngIf="story.index">{{story.index}}</span>
-            <span *ngIf="story.relatedToIndex">{{story.relatedToIndex}}</span>
-
-          </div>
-          <div class="id"><b>Id: </b>{{story.ItemId}}</div>
-          <div class="name">{{story.ItemName}}</div>
-          <div class="point"><b>Point: </b>{{story.EstimationPoints}}</div>
-          <div class="priority"><b>Priority: </b>{{story.Priority}}</div>
-          <div class="epic" *ngIf="story.Epic"><b>Epic: </b>{{story.Epic}}</div>
-        </div>
-
-      </tr>
-    </td>
-  </table>
-
-
+  </div>
+  <div class="id"><b>Id: </b>{{story.ItemId}}</div>
+  <div class="name">{{story.ItemName}}</div>
+  <div class="point"><b>Point: </b>{{story.EstimationPoints}}</div>
+  <div class="priority"><b>Priority: </b>{{story.Priority}}</div>
+  <div class="epic" *ngIf="story.Epic"><b>Epic: </b>{{story.Epic}}</div>
 </div>

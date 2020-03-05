@@ -1,4 +1,16 @@
+h3{
+    clear: both;
+}
 .print {
-  display: grid;
-  grid-template: repeat(auto-fill, minmax(100px, 1fr)) / repeat(auto-fill, 500px);
+
+  >* {
+    float: left;
+    page-break-inside: avoid;
+    width: 500px;
+    height: 250px;
+  }
+  :nth-child(2n+1){ /* Change this to your liking. (wrap after nth item) */
+    clear: left;
+  }
+  //   grid-template: repeat(auto-fill, minmax(100px, 1fr)) / repeat(auto-fill, 500px);
 }
