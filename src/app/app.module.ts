@@ -11,6 +11,7 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { PrintComponent } from './print/print.component';
 import { UserStoryComponent } from './user-story/user-story.component';
+import { TaskComponent } from './task/task.component';
 
 registerLocaleData(en);
 
@@ -18,7 +19,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     PrintComponent,
-    UserStoryComponent
+    UserStoryComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

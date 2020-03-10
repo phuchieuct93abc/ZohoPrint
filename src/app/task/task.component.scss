@@ -1,5 +1,5 @@
-$height:260px;
-$width:500px;
+$height:170px;
+$width:400px;
 
 :host {
   border: 1px solid black;
@@ -11,15 +11,13 @@ $width:500px;
 
 
 
-  .story {
+  .task {
     height: 100%;
     width: 100%;
     display: grid;
     grid-gap: 1em;
     grid-template: auto auto auto / auto 1fr auto;
-    grid-template-areas: "index id epic"
-      "name name name"
-      "priority empty point";
+    grid-template-areas: "index id ""name name";
 
 
     .index {
@@ -36,18 +34,7 @@ $width:500px;
       font-weight: bold;
     }
 
-    .point {
-      grid-area: point;
-    }
 
-    .priority {
-      grid-area: priority;
-    }
-
-    .epic {
-      grid-area: epic;
-
-    }
 
   }
 }

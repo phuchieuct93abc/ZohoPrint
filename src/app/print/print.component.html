@@ -1,18 +1,18 @@
 <h3>Stories</h3>
 <br>
 
-<div class="print">
-  <app-user-story *ngFor="let story of data.stories" [story]="story"></app-user-story>
+<div class="print task">
+  <app-user-story class="user-story" *ngFor="let story of data.stories" [story]="story"></app-user-story>
 
 
 
 </div>
 
-<h3>Task</h3>
+<h3 style="page-break-before: always;">Task</h3>
 <br>
 
 <div class="print">
-  <app-user-story *ngFor="let story of data.tasks" [story]="story"></app-user-story>
+  <app-task class="task" *ngFor="let story of data.tasks" [task]="story"></app-task>
 
 
 
