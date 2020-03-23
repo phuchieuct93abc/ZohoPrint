@@ -30,6 +30,6 @@ export class UserStory {
         this.Priority = data[10];
         this.ItemType = data[11];
         this.Relatedto = data[12];
-        this.ParentId = data[13];
+        this.ParentId = data[14];
     }
 }
