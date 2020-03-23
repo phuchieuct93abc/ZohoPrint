@@ -39,7 +39,11 @@ export class AppComponent {
     stories.forEach((s, index) => s.index = index + 1);
     tasks.forEach(t => {
       const us = stories.find(s => s.ItemId === t.ParentId);
-      t.relatedToIndex = us.index;
+      if(us){
+              t.relatedToIndex = us.index;
+      }else{
+      console.error("can not read us for",t.ParentId);
+      }
 
     });
     return { stories, tasks };
