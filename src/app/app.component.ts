@@ -34,7 +34,7 @@ export class AppComponent {
     const userStory: UserStory[] = data.data.map(d => new UserStory(d));
 
     const stories = userStory.filter(s => s.ItemType && s.ItemType.toLowerCase() === 'story');
-    const tasks = userStory.filter(s => s.ItemType && s.ItemType.toLowerCase() === 'task');
+    const tasks = userStory.filter(s => s.ItemType && s.ItemType.toLowerCase() !== 'story');
 
     stories.forEach((s, index) => s.index = index + 1);
     tasks.forEach(t => {
