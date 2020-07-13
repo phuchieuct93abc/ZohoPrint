@@ -14,14 +14,14 @@ export class AppComponent {
   data: { stories: UserStory[], tasks: UserStory[] };
 
   constructor(private papa: Papa) { }
-  
+
   handleChange({ file, fileList }: UploadChangeParam) {
     this.selectedFile = file.originFileObj;
     const fileReader: FileReader = new FileReader();
     fileReader.readAsText(this.selectedFile, 'UTF-8');
     fileReader.onload = () => {
       // @ts-ignore
-      const result = this.parseData(this.papa.parse(fileReader.result));
+      const result = this.parseData(this.papa.parse(fileReader.result, {skipEmptyLines: 'greedy'}));
       this.data = result;
 
     };
@@ -33,10 +33,10 @@ export class AppComponent {
 
 
   parseData(data): { stories: UserStory[], tasks: UserStory[] } {
-    const userStory: UserStory[] = data.data.map(d => new UserStory(d));
+    const userStory: UserStory[] = data.data.splice(5).map(d => new UserStory(d));
 
-    const stories = userStory.filter(s => s.ParentId);
-    const tasks = userStory.filter(s => !s.ParentId);
+    const stories = userStory.filter(s => s.ParentId === '' && s.ItemType !== '');
+    const tasks = userStory.filter(s => s.ParentId !== '' && s.ItemType !== '');
 
     stories.forEach((s, index) => s.index = index + 1);
     tasks.forEach(t => {
