@@ -12,7 +12,9 @@ export class AppComponent {
   title = 'zoho-print';
   selectedFile: File;
   data: { stories: UserStory[], tasks: UserStory[] };
+
   constructor(private papa: Papa) { }
+  
   handleChange({ file, fileList }: UploadChangeParam) {
     this.selectedFile = file.originFileObj;
     const fileReader: FileReader = new FileReader();
@@ -33,16 +35,16 @@ export class AppComponent {
   parseData(data): { stories: UserStory[], tasks: UserStory[] } {
     const userStory: UserStory[] = data.data.map(d => new UserStory(d));
 
-    const stories = userStory.filter(s => s.ItemType && s.ItemType.toLowerCase() === 'story');
-    const tasks = userStory.filter(s => s.ItemType && s.ItemType.toLowerCase() !== 'story');
+    const stories = userStory.filter(s => s.ParentId);
+    const tasks = userStory.filter(s => !s.ParentId);
 
     stories.forEach((s, index) => s.index = index + 1);
     tasks.forEach(t => {
       const us = stories.find(s => s.ItemId === t.ParentId);
-      if(us){
-              t.relatedToIndex = us.index;
-      }else{
-      console.error("can not read us for",t.ParentId);
+      if (us) {
+        t.relatedToIndex = us.index;
+      } else {
+        console.error('can not read us for', t.ParentId);
       }
 
     });
